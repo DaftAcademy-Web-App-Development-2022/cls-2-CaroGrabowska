@@ -1,13 +1,14 @@
 import Head from "next/head";
-import { Fragment } from "react";
-
 import { NextPageWithLayout } from "~/types/common.types";
+import { Container, Layout } from "~/components";
+import { Main } from "~/views";
+import playlistData from "~/data/playlistsData.json";
+import { PlaylistModelWithId } from "~/models/playlist.model";
 
-import Layout from "~/components/Layout/Layout.component";
 
 const Home: NextPageWithLayout = () => {
   return (
-    <Fragment>
+    <>
       <Head>
         <title>DaftAcademy - WebApp 2022</title>
         <link rel="icon" href="/favicon.ico" />
@@ -16,7 +17,10 @@ const Home: NextPageWithLayout = () => {
       <div>
         <h1>DaftAcademy - WebApp 2022 - tu coś dodaje</h1>
       </div>
-    </Fragment>
+      <Container>
+        <Main items={playlistData as Array<PlaylistModelWithId>} />
+      </Container>
+    </>
   );
 };
 
